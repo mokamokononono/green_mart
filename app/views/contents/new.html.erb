@@ -1,0 +1,67 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to image_tag('green-logo-color.png' , size: '185x50'), "/" %>
+
+  </header>
+  <%= form_with model: @content, local: true do |f|%>
+  <div class="items-sell-main">
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">タイトル</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :title, class:"input-default", id:"content_title" %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">本文</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :text, class:"input-text-default", placeholder: "text", rows: "10" %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">写真</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.file_field :image, id:"content_image" %>
+    </div>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">禁止されている投稿、</a>
+        <a href="#">行為</a>
+        を必ずご確認ください。
+      </p>
+      <p class="sentence">
+        また、投稿をもちまして
+        <a href="#">加盟店規約</a>
+        に同意したことになります。
+      </p>
+    </div>
+    <%# /注意書き %>
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">フリマ利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag('green-logo-color.png' , size: '185x50'), "/" %>
+    <p class="inc">
+      ©︎GreenMart,Inc.
+    </p>
+  </footer>
+</div>

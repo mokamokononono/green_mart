@@ -1,0 +1,49 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+  <%# 商品一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'>みどりの市場</h2>
+    <ul class='item-lists'>
+      <% @items.each do |item| %>
+        <li class='list'>
+          <%= link_to item_path(item.id), method: :get do %>
+            <div class='item-img-content'>
+              <%= image_tag item.image, class: "item-img" %>
+              <%# <% unless item.order.nil? %>
+              <% unless item.stock != 0 %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
+              <% end %>
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= item.name %>
+                <span style="font-size:70%">(<%= item.shipping_source.name%>産)</span>
+              </h3>
+              <div class='item-price'>
+                <span><span style="font-size:110%; color:#00a1ae"><%= item.price %>円</span>  (<%= item.amount %>kg)
+                <br> <span style="color:#8f2d12">残り<%= item.stock %></span>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if @items.nil? %>
+        <h3 class='item-name'>
+          商品を出品してね！
+        </h3>
+      <% end %>
+      
+    </ul>
+  </div>
+  <%# /商品一覧 %>
+</div>
+<%= link_to(new_item_path, class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>出品する</span>
+  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% end %>
+<%= render "shared/footer" %>

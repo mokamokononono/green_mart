@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header {
+  background-color: #708b1e;
+  width: 100vw;
+  padding: 2vh 15vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.green-icon {
+  width: 10vw;
+  margin-right: 10vw;
+}
+
+.search-form {
+  width: 65vw;
+  height: 5vh;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.search-form>.input-box {
+  width: 100%;
+  height: 5vh;
+  padding-left: 10px;
+}
+
+.search-button {
+  width: 5vh;
+  border: 0;
+  cursor: pointer;
+  background-color: #3ccace;
+  padding: 8px;
+}
+
+.search-icon {
+  width: 100%;
+}
+
+.nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0;
+}
+
+.lists-left {
+  display: flex;
+  min-width: 200px;
+
+}
+
+.mart-list {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #FFF;
+}
+
+.blog-list {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.lists-right {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+}
+
+
+.user-nickname {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #FFF;
+  font-weight: bold;
+}
+
+
+.logout {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #FFF;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: #FFF;
+}
