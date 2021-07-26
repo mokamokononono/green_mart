@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
       pay_item
       @order_address.save
       stock_item
-      redirect_to root_path
+      redirect_to items_path
     else
       render 'index'
     end

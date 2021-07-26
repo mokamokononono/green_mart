@@ -24,6 +24,9 @@
       <span class="item-postage">
         <%= @item.shipping_charge.charge %>
       </span>
+      <div>
+        <%= @item.amount %>kg    <span style="color:#8f2d12">残り<%= @item.stock %></span>
+      </div>
     </div>
 
     <% if current_user.id == @item.user_id %>
@@ -50,6 +53,10 @@
         <tr>
           <th class="detail-item">商品の状態</th>
           <td class="detail-value"><%= @item.condition.condition %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">農薬の有無</th>
+          <td class="detail-value"><%= @item.pesticides.condition %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>

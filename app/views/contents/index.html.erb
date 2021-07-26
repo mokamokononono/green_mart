@@ -7,18 +7,36 @@
     <ul class='item-lists'>
       <% @contents.each do |content| %>
         <li class='content-list'>
-          <%= link_to "#", method: :get do %>
-            <div class='item-img-content'>
-              <%= image_tag content.image, class: "item-img-wide" %>
+          <div class='item-img-content'>
+            <%= image_tag content.image, class: "item-img-wide" %>
+            <div class="more">
+              <span><%= image_tag 'arrow_top.png' %></span>
+              <ul class="more_list">
+                <li>
+                  <span style="color:#1d50a2;"><%= link_to '詳細', content_path(content.id), method: :get %></span>
+                </li>
+                <% if user_signed_in? && current_user.id == content.user_id %>
+                  <li>
+                    <span style="color:#1d50a2;"><%= link_to '編集', edit_content_path(content.id), method: :get %></span>
+                  </li>
+                  <li>
+                    <span style="color:#1d50a2;"><%= link_to '削除', content_path(content.id), method: :delete %></span>
+                  </li>
+                <% end %>
+                <li>
+                  <span style="color:#1d50a2;"><%= link_to '投稿者', "#", method: :get %></span>
+                                                            <%# user_path(content.user.id) %>
+                </li>
+              </ul>
             </div>
-            <div class='item-info'>
-              <h3 class='item-name'>
-                <span style="color:#8f2d12"><%= content.title %></span>
-                <span style="font-size:70%"><%= content.user.farmland_name %>(<%=content.user.farmland_region%>)</span>
-                <br> <span style="font-size:80%; color:#4c4948"><%= content.text %></span>
-              </h3>
-            </div>
-          <% end %>
+          </div>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <span style="color:#8f2d12"><%= content.title %></span>
+              <span style="font-size:70%"><%= content.user.farmland_name %>(<%=content.user.farmland_region%>)</span>
+              <br> <span style="font-size:80%; color:#4c4948"><%= content.text %></span>
+            </h3>
+          </div>
         </li>
       <% end %>
       <% if @contents.nil? %>

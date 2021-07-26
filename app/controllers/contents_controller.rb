@@ -28,7 +28,7 @@ class ContentsController < ApplicationController
 
   def update
     if @content.update(content_params)
-      redirect_to content_path(@content.id)
+      redirect_to contents_path
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class ContentsController < ApplicationController
 
   def destroy
     @content.destroy
-    redirect_to root_path
+    redirect_to contents_path
   end
 
   private
