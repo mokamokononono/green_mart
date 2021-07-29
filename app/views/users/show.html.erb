@@ -70,7 +70,9 @@
     </tbody>
   </table>
   <div class="profile-btn-contents">
-    <%=link_to 'プロフィールを変更する', "#",class: "profile-btn" %>
+    <% if user_signed_in? && current_user.id == @user.id %>
+      <%=link_to 'プロフィールを変更する', edit_user_registration_path, class: "profile-btn" %>
+    <% end %>
   </div>
   <%# ユーザ情報 %>
 

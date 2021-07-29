@@ -12,7 +12,7 @@
       <%# <% unless item.order.nil? %>
       <% unless @item.stock != 0 %>
         <div class="sold-out">
-          <span>Sold Out!!</span>
+          <span>現在在庫切れです!!</span>
         </div>
       <% end %>
 
@@ -29,12 +29,14 @@
       </div>
     </div>
 
-    <% if current_user.id == @item.user_id %>
-      <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
-      <p class="or-text">or</p>
-      <%= link_to "削除", item_path, method: :delete, class:"item-destroy" %>
-    <% elsif user_signed_in? && @item.stock != 0 %>
-      <%= link_to "購入画面に進む", item_orders_path(@item.id) ,class:"item-red-btn"%>
+    <% if user_signed_in? %>
+      <% if current_user.id == @item.user_id %>
+        <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", item_path, method: :delete, class:"item-destroy" %>
+      <% elsif @item.stock != 0 %>
+        <%= link_to "購入画面に進む", item_orders_path(@item.id) ,class:"item-red-btn"%>
+      <% end %>
     <% end %>
 
     <div class="item-explain-box">
