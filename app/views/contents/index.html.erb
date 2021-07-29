@@ -24,8 +24,7 @@
                   </li>
                 <% end %>
                 <li>
-                  <span style="color:#1d50a2;"><%= link_to '投稿者', "#", method: :get %></span>
-                                                            <%# user_path(content.user.id) %>
+                  <span style="color:#1d50a2;"><%= link_to '投稿者', user_path(content.user.id), method: :get %></span>
                 </li>
               </ul>
             </div>

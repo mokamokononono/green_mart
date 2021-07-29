@@ -1,0 +1,170 @@
+<header class='top-page-header'>
+  <div class='search-bar-contents'>
+    <%= link_to image_tag("green-logo-color.png", class:"green-icon"), "/" %>
+  </div>
+  <div class='nav'>
+    <ul class='lists-left'>
+      <li><%= link_to 'みどりの市場へ', items_path, class: "mart-list" %></li>
+      <li><%= link_to 'みどりのブログへ', contents_path, class: "blog-list" %></li>
+    </ul>
+    <ul class='lists-right'>
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.nick_name, user_path(current_user.id), class: "user-nickname" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
+
+<div class='main'>
+  <%# ユーザ情報 %>
+  <table class="detail-table">
+    <tbody>
+      <tr>
+        <th class="detail-item">ユーザー名</th>
+        <td class="detail-value"><%= @user.nick_name %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">農業団体名</th>
+        <% if @user.farmland_name == '' %>
+          <td class="detail-value">未登録</td>
+        <% else %>
+          <td class="detail-value"><%= @user.farmland_name %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="detail-item">地域名</th>
+        <% if @user.farmland_region == '' %>
+          <td class="detail-value">未登録</td>
+        <% else %>
+          <td class="detail-value"><%= @user.farmland_region %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="detail-item">田園の規模</th>
+        <% if @user.hectare.nil? %>
+          <td class="detail-value">未登録</td>
+        <% else %>
+          <td class="detail-value"><%= @user.hectare %> ha(ヘクタール)</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="detail-item">経験歴</th>
+        <% if @user.exp_year.nil? %>
+          <td class="detail-value">未登録</td>
+        <% else %>
+          <td class="detail-value"><%= @user.exp_year %>年 </td>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="detail-item">作物の分野</th>
+        <% if @user.crops == '' %>
+          <td class="detail-value">未登録</td>
+        <% else %>
+          <td class="detail-value"><%= @user.crops %> </td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+  <div class="profile-btn-contents">
+    <%=link_to 'プロフィールを変更する', "#",class: "profile-btn" %>
+  </div>
+  <%# ユーザ情報 %>
+
+  <%# 商品一覧 %>
+  <div class='item-contents'>
+    <% if @user.farmland_name == '' %>
+      <h2 class='title'><%= @user.nick_name%>さんの出品商品</h2>
+    <% else %>
+      <h2 class='title'><%= @user.farmland_name%>の出品商品</h2>
+    <% end %>
+    <ul class='item-lists'>
+      <% @user.items.each do |item| %>
+        <li class='list'>
+          <%= link_to item_path(item.id), method: :get do %>
+            <div class='item-img-content'>
+              <%= image_tag item.image, class: "item-img" %>
+              <%# <% unless item.order.nil? %>
+              <% unless item.stock != 0 %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
+              <% end %>
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= item.name %>
+                <span style="font-size:70%">(<%= item.shipping_source.name%>産)</span>
+              </h3>
+              <div class='item-price'>
+                <span><span style="font-size:110%; color:#00a1ae"><%= item.price %>円</span>  (<%= item.amount %>kg)
+                <br> <span style="color:#8f2d12">残り<%= item.stock %></span>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if @user.items.nil? %>
+        <h3 class='item-name'>
+          このユーザーはまだ商品を出品していません
+        </h3>
+      <% end %>
+      
+    </ul>
+  </div>
+  <%# /商品一覧 %>
+
+  <%# 投稿物一覧 %>
+  <div class='item-contents'>
+    <% if @user.farmland_name == '' %>
+      <h2 class='title'><%= @user.nick_name%>さんのブログ</h2>
+    <% else %>
+      <h2 class='title'><%= @user.farmland_name%>のブログ</h2>
+    <% end %>
+    <ul class='item-lists'>
+      <% @user.content.each do |content| %>
+        <li class='content-list'>
+          <div class='item-img-content'>
+            <%= image_tag content.image, class: "item-img-wide" %>
+            <div class="more">
+              <span><%= image_tag 'arrow_top.png' %></span>
+              <ul class="more_list">
+                <li>
+                  <span style="color:#1d50a2;"><%= link_to '詳細', content_path(content.id), method: :get %></span>
+                </li>
+                <% if user_signed_in? && current_user.id == content.user_id %>
+                  <li>
+                    <span style="color:#1d50a2;"><%= link_to '編集', edit_content_path(content.id), method: :get %></span>
+                  </li>
+                  <li>
+                    <span style="color:#1d50a2;"><%= link_to '削除', content_path(content.id), method: :delete %></span>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <span style="color:#8f2d12"><%= content.title %></span>
+              <span style="font-size:70%"><%= content.user.farmland_name %>(<%=content.user.farmland_region%>)</span>
+              <br> <span style="font-size:80%; color:#4c4948"><%= content.text %></span>
+            </h3>
+          </div>
+        </li>
+      <% end %>
+      <% if @user.content.nil? %>
+        <h3 class='item-name'>
+          このユーザーはまだブログを投稿していません
+        </h3>
+      <% end %>
+    </ul>
+  </div>
+  <%# 投稿物一覧 %>
+</div>
+
+<%= render "shared/second-footer"%>

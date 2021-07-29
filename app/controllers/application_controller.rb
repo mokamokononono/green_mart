@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
       :sign_up, keys: [:nick_name, :kanji_family_name, :kanji_given_name, :katakana_family_name, :katakana_given_name,
                        :date_of_birth, :farmland_name, :farmland_region, :exp_year, :crops]
     )
+    # devise_parameter_sanitizer.permit(
+    #   :account_update,[:nick_name, :kanji_family_name, :kanji_given_name, :katakana_family_name, :katakana_given_name,
+    #                    :date_of_birth, :farmland_name, :farmland_region, :exp_year, :crops]
+    # )
   end
 
   private
