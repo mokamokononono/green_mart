@@ -1,0 +1,39 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nick_name: ニックネーム
+        kanji_family_name: 苗字（漢字）
+        kanji_given_name: 名前（漢字）
+        katakana_family_name: 苗字（カナ）
+        katakana_given_name: 名前（カナ）
+        date_of_birth: 生年月日
+        farmland_name: 農業団体名
+        farmland_region: 農業地域名
+        hectare: 農業規模（ヘクタール）
+        exp_year: 経験年数
+        crops: 作物の種類・分野
+      item:
+        name: 商品名
+        price: 価格
+        description: 商品の説明
+        category_id: カテゴリー
+        condition_id: 商品状態
+        pesticides_id: 農薬の有無
+        amount: 重さ
+        stock: 販売数
+        shipping_charge_id: 配送料の負担
+        shipping_source_id: 配送元の地域
+        shipping_date_id: 配送までの日数
+      content:
+        title: タイトル
+        text: テキスト
+  activemodel:
+    attributes:
+      order_address:
+        zip_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市町村
+        address: 番地
+        building: 建物の名前
+        phone_number: 電話番号

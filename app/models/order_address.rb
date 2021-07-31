@@ -3,12 +3,12 @@ class OrderAddress
   attr_accessor :zip_code, :prefecture_id, :city, :address, :building, :phone_number, :user_id, :item_id, :token
 
   with_options presence: true do
-    validates :zip_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :zip_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'は不正な値です。ハイフン(-)を含めた半角数字で入力してください' }
+    validates :prefecture_id, numericality: { other_than: 1, message: "を選択してください" }
     validates :city
     validates :address
-    validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width numbers' },
-                             length: { maximum: 11, message: 'is invalid. Input phone_number with in 11 character' }
+    validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'は不正な値です。半角数字で入力してください' },
+                             length: { maximum: 11, message: 'は不正な値です。11桁の電話番号を入力してください' }
     validates :user_id
     validates :item_id
     validates :token
