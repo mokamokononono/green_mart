@@ -1,5 +1,5 @@
 # アプリ名
-みどりの市場
+![green-logo-color](./app/assets/images/green-logo-color.png)
 
 # 概要
 本アプリケーションは農業に特化したフリーマーケットコミュニケーションアプリである。
