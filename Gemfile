@@ -79,3 +79,8 @@ gem 'rails-i18n'
 
 # AWS S3
 gem "aws-sdk-s3", require: false
+
+# unicorn
+group :production do
+  gem 'unicorn', '5.4.1'
+end
