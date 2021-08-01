@@ -55,7 +55,7 @@
   background-color: #8f2d12;
   font-size: 24px;
   font-weight: bold;
-  color: #FFF;
+  color: #fffffe;
   margin: 20px 0px;
   padding: 2vh 10vw;
 }
@@ -65,10 +65,10 @@
 }
 
 .item-destroy {
-  background-color: lightgray;
+  background-color: #afafb0;
   text-align: center;
   font-size: 24px;
-  color: black;
+  color: #130012;
   margin: 20px 0px;
   padding: 2vh 10vw;
 }
@@ -87,8 +87,8 @@
 .detail-item {
   width: 20%;
   background-color: #708b1e;
-  border: 1px solid #dedede;
-  color: white;
+  border: 1px solid #f6f7f8;
+  color: #fffffe;
   font-size: 14px;
   text-align: center;
 }
@@ -96,8 +96,8 @@
 .detail-value {
   width: 80%;
   padding: 20px;
-  background-color: #eee;
-  border: 1px solid #dedede;
+  background-color: #fffffe;
+  border: 1px solid #f6f7f8;
   font-size: 14px;
 }
 
@@ -136,7 +136,7 @@
   line-height: 48px;
   background-color: #00a1ae;
   border: 1px solid #00a1ae;
-  color: #fff;
+  color: #fffffe;
   width: 50%;
   min-width: 150px;
   font-size: 18px;

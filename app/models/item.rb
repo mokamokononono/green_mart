@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :shipping_charge
   belongs_to :shipping_source
   belongs_to :shipping_date
-  
+
   with_options presence: true do
     validates :name
     validates :price
@@ -14,7 +14,7 @@ class Item < ApplicationRecord
     validates :image
     validates :stock
     validates :amount
-    with_options numericality: { other_than: 1, message: "を選択してください" } do
+    with_options numericality: { other_than: 1, message: 'を選択してください' } do
       validates :category_id
       validates :condition_id
       validates :pesticides_id
@@ -35,7 +35,7 @@ class Item < ApplicationRecord
             numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999,
                             message: 'は範囲外の値です。0 〜 9,999,999の範囲で入力してください' }
   validates :amount,
-            numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 30,
+            numericality: { greater_than_or_equal_to: 0.0, less_than_or_equal_to: 30.0,
                             message: 'は範囲外の値です。0 〜 30の範囲で入力してください' }
 
   belongs_to :user

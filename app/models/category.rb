@@ -13,7 +13,7 @@ class Category < ActiveHash::Base
     { id: 11, name: '飼肥料作物' },
     { id: 12, name: '花き' },
     { id: 13, name: '薬用作物' },
-    { id: 14, name: '採取用作物' },
+    { id: 14, name: '採取用作物' }
   ]
 
   include ActiveHash::Associations

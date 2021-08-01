@@ -18,52 +18,52 @@ RSpec.describe Item, type: :model do
       it 'imageが空では登録できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "Imageを入力してください"
+        expect(@item.errors.full_messages).to include 'Imageを入力してください'
       end
       it '商品名nameが空では登録できない' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include "商品名を入力してください"
+        expect(@item.errors.full_messages).to include '商品名を入力してください'
       end
       it 'descriptionが空では登録できない' do
         @item.description = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include "商品の説明を入力してください"
+        expect(@item.errors.full_messages).to include '商品の説明を入力してください'
       end
       it 'category_idが1では登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "カテゴリーを選択してください"
+        expect(@item.errors.full_messages).to include 'カテゴリーを選択してください'
       end
       it 'condition_idが1では登録できない' do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "商品状態を選択してください"
+        expect(@item.errors.full_messages).to include '商品状態を選択してください'
       end
       it 'pesticides_idが1では登録できない' do
         @item.pesticides_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "農薬の有無を選択してください"
+        expect(@item.errors.full_messages).to include '農薬の有無を選択してください'
       end
       it 'shipping_charge_idが1では登録できない' do
         @item.shipping_charge_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "配送料の負担を選択してください"
+        expect(@item.errors.full_messages).to include '配送料の負担を選択してください'
       end
       it 'shipping_source_idが1では登録できない' do
         @item.shipping_source_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "配送元の地域を選択してください"
+        expect(@item.errors.full_messages).to include '配送元の地域を選択してください'
       end
       it 'shipping_date_idが1では登録できない' do
         @item.shipping_date_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "配送までの日数を選択してください"
+        expect(@item.errors.full_messages).to include '配送までの日数を選択してください'
       end
       it 'priceが空では登録できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include "価格を入力してください"
+        expect(@item.errors.full_messages).to include '価格を入力してください'
       end
       it 'priceが全角ではで登録できない' do
         @item.price = '４７２８３'
@@ -93,7 +93,7 @@ RSpec.describe Item, type: :model do
       it 'amountが空では登録できない' do
         @item.amount = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include "重さを入力してください"
+        expect(@item.errors.full_messages).to include '重さを入力してください'
       end
       it 'amountが全角ではで登録できない' do
         @item.amount = '１１'
@@ -123,7 +123,7 @@ RSpec.describe Item, type: :model do
       it 'stockが空では登録できない' do
         @item.stock = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include "販売数を入力してください"
+        expect(@item.errors.full_messages).to include '販売数を入力してください'
       end
       it 'stockが全角ではで登録できない' do
         @item.stock = '２８３'
@@ -153,7 +153,7 @@ RSpec.describe Item, type: :model do
       it 'user_idが空では購入できない' do
         @item.user_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "Userを入力してください"
+        expect(@item.errors.full_messages).to include 'Userを入力してください'
       end
     end
   end

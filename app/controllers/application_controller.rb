@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     )
     devise_parameter_sanitizer.permit(
       :account_update, keys: [:nick_name, :kanji_family_name, :kanji_given_name, :katakana_family_name, :katakana_given_name,
-                       :date_of_birth, :farmland_name, :farmland_region, :hectare, :exp_year, :crops]
+                              :date_of_birth, :farmland_name, :farmland_region, :hectare, :exp_year, :crops]
     )
   end
 

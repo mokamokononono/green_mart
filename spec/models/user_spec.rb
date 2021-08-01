@@ -23,42 +23,42 @@ RSpec.describe User, type: :model do
       it 'nick_nameが空では登録できない' do
         @user.nick_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "ニックネームを入力してください"
+        expect(@user.errors.full_messages).to include 'ニックネームを入力してください'
       end
       it 'kanji_family_nameが空では登録できない' do
         @user.kanji_family_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "苗字（漢字）を入力してください"
+        expect(@user.errors.full_messages).to include '苗字（漢字）を入力してください'
       end
       it 'kanji_given_nameが空では登録できない' do
         @user.kanji_given_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "名前（漢字）を入力してください"
+        expect(@user.errors.full_messages).to include '名前（漢字）を入力してください'
       end
       it 'katakana_family_nameが空では登録できない' do
         @user.katakana_family_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "苗字（カナ）を入力してください"
+        expect(@user.errors.full_messages).to include '苗字（カナ）を入力してください'
       end
       it 'katakana_given_nameが空では登録できない' do
         @user.katakana_given_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "名前（カナ）を入力してください"
+        expect(@user.errors.full_messages).to include '名前（カナ）を入力してください'
       end
       it 'emailが空では登録できない' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "Eメールを入力してください"
+        expect(@user.errors.full_messages).to include 'Eメールを入力してください'
       end
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "パスワードを入力してください"
+        expect(@user.errors.full_messages).to include 'パスワードを入力してください'
       end
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "パスワード（確認用）とパスワードの入力が一致しません"
+        expect(@user.errors.full_messages).to include 'パスワード（確認用）とパスワードの入力が一致しません'
       end
       it '重複したemailが存在する場合登録できない' do
         @user.save
@@ -127,7 +127,7 @@ RSpec.describe User, type: :model do
         @user.hectare = '４７２'
         @user.valid?
         expect(@user.errors.full_messages).to include '農業規模（ヘクタール）は不正な値です。半角数字（小数点可）で入力してください'
-      end 
+      end
       it 'hectareが数字以外混じっていると登録できない' do
         @user.hectare = '1f1f1f'
         @user.valid?
@@ -142,7 +142,7 @@ RSpec.describe User, type: :model do
         @user.exp_year = '１５'
         @user.valid?
         expect(@user.errors.full_messages).to include '経験年数は不正な値です。半角数字で入力してください'
-      end 
+      end
       it 'exp_yearが数字以外混じっているとば登録できない' do
         @user.exp_year = '1f'
         @user.valid?
@@ -153,7 +153,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include '経験年数は不正な値です。半角数字で入力してください'
       end
-
     end
   end
 end

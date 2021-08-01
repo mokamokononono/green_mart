@@ -11,7 +11,7 @@ FactoryBot.define do
     password_confirmation { password }
     farmland_name         { '見本農園' }
     farmland_region       { 'みほん村' }
-    hectare               { Faker::Number.within(range: 0..10000) }
+    hectare               { Faker::Number.within(range: 0..10_000) }
     exp_year              { Faker::Number.within(range: 0..100) }
     crops                 { Faker::Food.vegetables }
   end

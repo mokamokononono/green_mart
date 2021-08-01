@@ -64,12 +64,12 @@
 .mart-list {
   text-decoration: none;
   margin-right: 3vw;
-  color: #FFF;
+  color: #fffffe;
 }
 
 .blog-list {
   text-decoration: none;
-  color: #FFF;
+  color: #fffffe;
 }
 
 .lists-right {
@@ -82,24 +82,24 @@
 .user-nickname {
   text-decoration: none;
   margin-right: 3vw;
-  color: #FFF;
+  color: #fffffe;
   font-weight: bold;
 }
 
 
 .logout {
   text-decoration: none;
-  color: #FFF;
+  color: #fffffe;
 }
 
 .login {
   text-decoration: none;
   line-height: 32px;
   margin-right: 3vw;
-  color: #FFF;
+  color: #fffffe;
 }
 
 .sign-up {
   text-decoration: none;
-  color: #FFF;
+  color: #fffffe;
 }
