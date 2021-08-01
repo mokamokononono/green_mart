@@ -76,3 +76,6 @@ gem 'payjp'
 
 # error message on Japanese 
 gem 'rails-i18n'
+
+# AWS S3
+gem "aws-sdk-s3", require: false
