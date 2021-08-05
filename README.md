@@ -1,4 +1,4 @@
-# アプリ名
+# アプリ名：みどりの市場（いちば）
 ![green-logo-color](./app/assets/images/green-logo-color.png)
 
 # 概要
