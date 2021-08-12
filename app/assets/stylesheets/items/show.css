@@ -110,45 +110,56 @@
 
 /* /商品の概要 */
 
-.comment-box {
-  width: 40vw;
-  background-color: #afafb0;
-  margin: 5vh 0;
-  text-align: center;
+.comment-show {
+  background-color: #bcd079;
+  width: 100vw;
+  padding: 1vh 0;
+}
+
+.comment-box{
+  padding: 0 10%;
+  margin: 28px 0 40px 0;
+}
+
+.comment-title{
+  font-size: 3vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: #00a1ae;
+  font-weight: bold;
 }
 
 .comment-text {
   width: 100%;
-  height: 100px;
+  height: 50px;
   padding: 10px;
-  border: solid 2px #afafb0;
+  border-radius: 4px;
+  border: 1px solid #afafb0;;
+  background: #fffffe;
+  font-size: 16px;
   resize: none;
 }
 
-.comment-warn {
-  padding: 10px;
-  font-size: 14px;
-  margin: 10px 0px;
-  text-align: left;
-}
-
-.comment-btn {
-  line-height: 48px;
-  background-color: #00a1ae;
-  border: 1px solid #00a1ae;
+.comment-actions{
+  background: #007d92;
+  border: 1px solid #007d92;
   color: #fffffe;
-  width: 50%;
-  min-width: 150px;
-  font-size: 18px;
-  border-radius: 100px;
-  margin-bottom: 2vh;
+  width: 10%;
+  height: 25px;
+  font-size: 14px;
+  margin-top: 1vh;
+  margin-bottom: 4vh;
 }
 
-.comment-flag {
-  display: flex;
-  justify-content: center;
+.comments_lists{
+  padding-left: 20px;
 }
 
-.comment-flag-icon {
-  margin: 10px 5px 0 0;
+.comments_list{
+  list-style-type: square;
+  padding-bottom: 5px;
+}
+
+.comment_field{
+  margin: 10px 0;
 }

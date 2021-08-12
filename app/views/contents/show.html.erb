@@ -14,21 +14,31 @@
       <span><%= @content.text %></span>
     </div>
   </div>
+</div>
 
-
+<%# コメントの表示 %>
+<div class="comment-show">
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
+  <h2 class='comment-title'>みんなのコメント</h2>
+    <% if user_signed_in? %>
+      <%= form_with model: [@content, @contentcomment] ,local: true do |f|%>
+        <div>
+          <%= f.text_field :text, class:"comment-text", placeholder:"ここにコメントを記入してね！", id:"contentcomment_text" %>
+        </div>
+        <div>
+          <%= f.submit "送信", class:"comment-actions" %>
+        </div>
+      <% end %> 
+    <% end%>
+    <ul class="comments_lists">
+      <% @contentcomments.each do |contentcomment| %>
+        <li class="comments_list">
+          <%= link_to contentcomment.user.nick_name, user_path(contentcomment.user.id), class: :contentcomment_user %>
+          ▶︎　<%= contentcomment.text%>
+          <br><span style="font-size:70%; color:rgb(135, 156, 130)"><%= contentcomment.created_at.to_s(:datetime_jp) %></span>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
 

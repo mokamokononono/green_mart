@@ -39,7 +39,7 @@ class Item < ApplicationRecord
                             message: 'は範囲外の値です。0 〜 30の範囲で入力してください' }
 
   belongs_to :user
-  # has_many :comments, dependent: :destroy
+  has_many :itemcomments, dependent: :destroy
   has_one :order
   has_one_attached :image
 end

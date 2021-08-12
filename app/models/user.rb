@@ -25,8 +25,9 @@ class User < ApplicationRecord
                        allow_blank: true
 
   has_many :items, dependent: :destroy
+  has_many :itemcomments, dependent: :destroy
   has_many :content, dependent: :destroy
-  # has_many :comments, dependent: :destroy
+  has_many :contentcomments, dependent: :destroy
   has_many :orders
 
   # allow users to update their accounts without passwords

@@ -1,0 +1,2 @@
+module ContentcommentsHelper
+end

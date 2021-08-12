@@ -25,8 +25,12 @@ ja:
         shipping_charge_id: 配送料の負担
         shipping_source_id: 配送元の地域
         shipping_date_id: 配送までの日数
+      itemcomment:
+        text: テキスト
       content:
         title: タイトル
+        text: テキスト
+      contentcomment:
         text: テキスト
   activemodel:
     attributes:

@@ -34,6 +34,7 @@
               <span style="color:#8f2d12"><%= content.title %></span>
               <span style="font-size:70%"><%= content.user.farmland_name %>(<%=content.user.farmland_region%>)</span>
               <br> <span style="font-size:80%; color:#4c4948"><%= content.text %></span>
+              <br><span style="font-size:70%; color:rgb(135, 156, 130)"><%= content.created_at.to_s(:datetime_jp) %></span>
             </h3>
           </div>
         </li>

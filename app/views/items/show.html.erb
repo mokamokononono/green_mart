@@ -75,21 +75,31 @@
       </tbody>
     </table>
   </div>
-  <%# /商品の概要 %>
+</div>
 
+<%# コメントの表示 %>
+<div class="comment-show">
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
+  <h2 class='comment-title'>この商品に関する質問・コメント</h2>
+    <% if user_signed_in? %>
+      <%= form_with model: [@item, @itemcomment] ,local: true do |f|%>
+        <div>
+          <%= f.text_field :text, class:"comment-text", placeholder:"ここにコメントを記入してね！", id:"contentcomment_text" %>
+        </div>
+        <div>
+          <%= f.submit "送信", class:"comment-actions" %>
+        </div>
+      <% end %> 
+    <% end%>
+    <ul class="comments_lists">
+      <% @itemcomments.each do |itemcomment| %>
+        <li class="comments_list">
+          <%= link_to itemcomment.user.nick_name, user_path(itemcomment.user.id), class: :itemcomment_user %>
+          ▶︎　<%= itemcomment.text%>
+          <br><span style="font-size:70%; color:rgb(135, 156, 130)"><%= itemcomment.created_at.to_s(:datetime_jp) %></span>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
 

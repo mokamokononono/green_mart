@@ -72,7 +72,6 @@
 
 ![demo](https://gyazo.com/cabf89c827df68f326e6dc7ca5d881ce/raw)
 
-
 # 工夫したポイント
 - フリーマーケットアプリにブログ投稿機能を実現したこと
   - 若年層の多くはSNSを利用しており、その感覚で本アプリが利用できるようにすることで利用者の増加を狙う
@@ -156,7 +155,9 @@ VSCode
 ### Association
 
 - has_many :items
+- has_many :itemcomments
 - has_many :contents
+- has_many :contentcomments
 - has_many :orders
 
 ## items テーブル
@@ -182,6 +183,19 @@ VSCode
 - has_one :order
 - has_one_attached :image
 
+## itemcomments テーブル
+
+| Column  | Type        | Options                        |
+| ------- | ----------- | ------------------------------ |
+| text    | text        | null: false                    |
+| user    | references  | null: false, foreign_key: true |
+| item    | references  | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
 ## contents テーブル
 
 | Column  | Type        | Options                        |
@@ -194,6 +208,19 @@ VSCode
 
 - belongs_to :user
 - has_one_attached :image
+
+## contentcomments テーブル
+
+| Column  | Type        | Options                        |
+| ------- | ----------- | ------------------------------ |
+| text    | text        | null: false                    |
+| user    | references  | null: false, foreign_key: true |
+| content | references  | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :content
 
 ## orders テーブル
 

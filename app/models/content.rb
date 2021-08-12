@@ -6,5 +6,6 @@ class Content < ApplicationRecord
   end
 
   belongs_to :user
+  has_many :contentcomments, dependent: :destroy
   has_one_attached :image
 end

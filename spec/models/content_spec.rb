@@ -12,7 +12,7 @@ RSpec.describe Content, type: :model do
         expect(@content).to be_valid
       end
     end
-    context '商品出品ができないとき' do
+    context 'ブログ投稿ができないとき' do
       it 'imageが空では登録できない' do
         @content.image = nil
         @content.valid?
