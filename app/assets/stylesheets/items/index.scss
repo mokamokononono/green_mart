@@ -58,11 +58,13 @@ a {
 .item-img {
   width: 33vh;
   height: 33vh;
+  object-fit: cover;
 }
 
 .item-img-wide {
   width: 50vh;
   height: 33vh;
+  object-fit: cover;
 }
 
 .sold-out {
